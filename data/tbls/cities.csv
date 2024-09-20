@@ -1,0 +1,314 @@
+city.name,state.name,geo.id
+spokane,washington,5811696
+moraga,california,5374671
+malibu,california,5369906
+san francisco,california,5391959
+santa clara,california,5393015
+portland,oregon,5746545
+los angeles,california,5368361
+san diego,california,5391811
+champaign,illinois,4887158
+madison,wisconsin,5261457
+east lansing,michigan,4998830
+iowa city,iowa,4862034
+ann arbor,michigan,4984247
+evanston,illinois,4891382
+west lafayette,indiana,4922462
+bloomington,indiana,4254679
+columbus,ohio,4509177
+minneapolis,minnesota,5037649
+university park,pennsylvania,5216775
+stanford,california,5398563
+seattle,washington,5809844
+tucson,arizona,5318313
+eugene,oregon,5725846
+berkeley,california,5327684
+pullman,washington,5807540
+corvallis,oregon,5720727
+tempe,arizona,5317058
+lexington,kentucky,4297983
+gainesville,florida,4156404
+columbia,south carolina,4575352
+nashville,tennessee,4644585
+athens,georgia,4180386
+knoxville,tennessee,4634946
+mississippi state,mississippi,4436296
+baton rouge,louisiana,4315588
+tuscaloosa,alabama,4094455
+auburn,alabama,4830796
+university,mississippi,4449420
+fayetteville,arkansas,4110486
+pittsburgh,pennsylvania,5206379
+storrs,connecticut,4843786
+providence,rhode island,5224151
+syracuse,new york,5140405
+chestnut hill,massachusetts,4932957
+south orange,new jersey,5104836
+notre dame,indiana,8469294
+blacksburg,virginia,4747845
+new brunswick,new jersey,5101717
+morgantown,west virginia,4815352
+villanova,pennsylvania,5217246
+washington,district of columbia,4140963
+coral gables,florida,4151871
+queens,new york,5133273
+chicago,illinois,4887398
+memphis,tennessee,4641239
+cincinnati,ohio,4508722
+birmingham,alabama,4049979
+charlotte,north carolina,4460243
+louisville,kentucky,4299276
+st louis,missouri,4407066
+milwaukee,wisconsin,5263045
+fort worth,texas,4691930
+hattiesburg,mississippi,4429295
+greenville,north carolina,4469160
+new orleans,louisiana,4335045
+houston,texas,4699066
+tampa,florida,4174757
+usaf academy,colorado,5415463
+provo,utah,5780026
+salt lake city,utah,5780993
+las vegas,nevada,5506956
+albuquerque,new mexico,5454711
+laramie,wyoming,5821086
+fort collins,colorado,5577147
+reno,nevada,5511077
+el paso,texas,5520993
+boise,idaho,5586437
+honolulu,hawaii,5856195
+fresno,california,5350937
+ruston,louisiana,4339348
+dallas,texas,4684888
+tulsa,oklahoma,4553433
+san jose,california,5392171
+philadelphia,pennsylvania,4560349
+kingston,rhode island,5223006
+amherst,massachusetts,4929022
+st bonaventure,new york,5139399
+bronx,new york,5110266
+dayton,ohio,4509884
+richmond,virginia,4781708
+durham,north carolina,4464368
+raleigh,north carolina,4487042
+winston-salem,north carolina,4499612
+atlanta,georgia,4180439
+chapel hill,north carolina,4460162
+college park,maryland,4351977
+tallahassee,florida,4174715
+charlottesville,virginia,4752031
+clemson,south carolina,4574989
+green bay,wisconsin,5254962
+detroit,michigan,4990729
+indianapolis,indiana,4259418
+youngstown,ohio,5177568
+cleveland,ohio,5150529
+troy,alabama,4094163
+orlando,florida,4167147
+deland,florida,4152890
+macon,georgia,4207400
+jacksonville,florida,4160021
+boca raton,florida,4148411
+boiling springs,north carolina,4456595
+buies creek,north carolina,4458033
+clarksville,tennessee,4613868
+murray,kentucky,4302035
+morehead,kentucky,4301312
+richmond,kentucky,4305974
+jacksonville,alabama,4069553
+cookeville,tennessee,4615145
+martin,tennessee,4639684
+cape girardeau,missouri,4379966
+charleston,illinois,12213410
+cheney,washington,5789856
+flagstaff,arizona,5294810
+ogden,utah,5779206
+sacramento,california,5389489
+pocatello,idaho,5604045
+bozeman,montana,5641727
+missoula,montana,5666639
+carbondale,illinois,4235193
+omaha,nebraska,5074472
+cedar falls,iowa,4850699
+wichita,kansas,4281730
+springfield,missouri,4409896
+peoria,illinois,4905687
+des moines,iowa,4853828
+terre haute,indiana,4265737
+evansville,indiana,4257227
+normal,illinois,4903780
+kent,ohio,5159537
+oxford,ohio,4520760
+buffalo,new york,5110629
+huntington,west virginia,4809537
+athens,ohio,4505542
+akron,ohio,5145476
+kalamazoo,michigan,4997787
+toledo,ohio,5174035
+muncie,indiana,4924006
+bowling green,ohio,5147968
+ypsilanti,michigan,5015688
+de kalb,illinois,4889553
+mount pleasant,michigan,5002714
+fairfax,virginia,4781530
+norfolk,virginia,4776222
+hempstead,new york,5120478
+newark,delaware,4143861
+wilmington,north carolina,4499379
+williamsburg,virginia,4793846
+towson,maryland,12213043
+harrisonburg,virginia,4763231
+little rock,arkansas,4119403
+bowling green,kentucky,4285268
+murfreesboro,tennessee,12213764
+state university,arkansas,4134519
+miami,florida,4164138
+lafayette,louisiana,4330145
+denton,texas,4685907
+mobile,alabama,4076598
+denver,colorado,5419384
+las cruces,new mexico,5475352
+valparaiso,indiana,4927537
+shreveport,louisiana,4341513
+kansas city,missouri,4393217
+cedar city,utah,12213400
+rochester,michigan,5007400
+macomb,illinois,4900817
+stillwater,oklahoma,4552215
+austin,texas,4671654
+lawrence,kansas,4274277
+boulder,colorado,5574991
+lubbock,texas,5525577
+columbia,missouri,4381982
+norman,oklahoma,4543762
+ames,iowa,4846834
+manhattan,kansas,4274994
+lincoln,nebraska,5072006
+waco,texas,4739526
+college station,texas,4682464
+lynchburg,virginia,4771075
+high point,north carolina,4471025
+rock hill,south carolina,4593142
+conway,south carolina,4588718
+radford,virginia,4780837
+asheville,north carolina,4453066
+lexington,virginia,4769352
+charleston,south carolina,4574324
+logan,utah,5777544
+stockton,california,5399020
+santa barbara,california,5392952
+moscow,idaho,5601538
+northridge,california,5377985
+fullerton,california,5351247
+riverside,california,5387877
+san luis obispo,california,5392323
+irvine,california,5359777
+long beach,california,12213683
+bethlehem,pennsylvania,5180225
+easton,pennsylvania,5188140
+lewisburg,pennsylvania,12213664
+worcester,massachusetts,4956184
+hamilton,new york,5119847
+west point,new york,5143966
+annapolis,maryland,4347242
+princeton,new jersey,5102922
+new haven,connecticut,4839366
+ithaca,new york,5122432
+new york,new york,5128581
+boston,massachusetts,4930956
+hanover,new hampshire,5087168
+johnson city,tennessee,4633419
+chattanooga,tennessee,4612862
+elon,north carolina,4465285
+greensboro,north carolina,4469146
+cullowhee,north carolina,4462701
+boone,north carolina,4456703
+statesboro,georgia,4224413
+davidson,north carolina,4475773
+greenville,south carolina,4580543
+spartanburg,south carolina,4597200
+riverdale,new york,5133917
+niagara university,new york,5128737
+fairfield,connecticut,4834157
+jersey city,new jersey,5099836
+lawrenceville,new jersey,5100356
+loudonville,new york,5125359
+new rochelle,new york,5128549
+poughkeepsie,new york,5132143
+baltimore,maryland,4347778
+west long branch,new jersey,5106275
+brooklyn heights,new york,5110309
+teaneck,new jersey,5105262
+moon township,pennsylvania,7258082
+loretto,pennsylvania,5198988
+staten island,new york,5139568
+new britain,connecticut,4839292
+emmitsburg,maryland,4354352
+hamden,connecticut,4835654
+brooklyn,new york,5110302
+corpus christi,texas,4683416
+edinburg,texas,4688275
+savannah,georgia,4221552
+fort wayne,indiana,4920423
+hammond,louisiana,4326868
+arlington,texas,4671240
+san antonio,texas,4726206
+nacogdoches,texas,4713735
+huntsville,texas,4699540
+san marcos,texas,4726491
+natchitoches,louisiana,4334720
+monroe,louisiana,4333669
+lake charles,louisiana,4330236
+beaumont,texas,4672989
+thibodaux,louisiana,12213604
+burlington,vermont,5234372
+orono,maine,4974313
+binghamton,new york,5109177
+west hartford,connecticut,4845411
+durham,new hampshire,5085618
+stony brook,new york,5139865
+albany,new york,5106834
+itta bena,mississippi,4431280
+montgomery,alabama,4076784
+normal,alabama,4080352
+jackson,mississippi,4431410
+alcorn state,mississippi,4422713
+grambling,louisiana,4326074
+prairie view,texas,4720493
+pine bluff,arkansas,4126226
+orangeburg,south carolina,4590184
+dover,delaware,4142290
+hampton,virginia,4762894
+daytona beach,florida,4152872
+princess anne,maryland,4366176
+greeley,colorado,5577592
+davis,california,5391811
+farmville,virginia,4744870
+fargo,north dakota,5059163
+brookings,south dakota,5226534
+kennesaw,georgia,4203696
+orem,utah,5779334
+newark,new jersey,5101798
+fort myers,florida,4155995
+clinton,south carolina,4575028
+bakersfield,california,5325738
+edwardsville,illinois,4237717
+smithfield,rhode island,5223687
+conway,arkansas,4106458
+grand forks,north dakota,5059429
+vermillion,south dakota,5232592
+highland heights,kentucky,4294788
+lowell,massachusetts,4942618
+phoenix,arizona,5308655
+abilene,texas,4669635
+florence,alabama,4062577
+north andover,massachusetts,4929055
+stephenville,texas,4681712
+la jolla,california,5363943
+st paul,minnesota,5045360
+st charles,missouri,4406831
+easton,massachusetts,4935623
+commerce,texas,4682762
+oklahoma city,oklahoma,4544349
+toronto,ontario,6167865
+east rutherford,new jersey,5097459
