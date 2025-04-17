@@ -18,7 +18,7 @@ For detailed installation instructions and a thorough breakdown of the database 
 
 ## Python Packages Used
 
-- **General Purpsose**: ![dotenv](https://badgen.net/badge/dotenv/1.0.1).
+- **General Purpose**: ![dotenv](https://badgen.net/badge/dotenv/1.0.1).
 - **Data Manipulation**: ![numpy](https://badgen.net/badge/numpy/2.0.1), ![pandas](https://badgen.net/badge/pandas/2.2.2).
 - **Database Support**: ![sqlalchemy](https://badgen.net/badge/sqlalchemy/2.0.31).
 
