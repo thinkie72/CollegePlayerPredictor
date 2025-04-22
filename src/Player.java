@@ -5,6 +5,13 @@ public class Player {
     String name;
     int ht;
     int wt;
+
+    double collegePPG;
+    double collegeRPG;
+    double collegeAPG;
+    double proPPG;
+    double proRPG;
+    double proAPG;
     // Constructor
     // Methods
 }
