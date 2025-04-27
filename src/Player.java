@@ -1,7 +1,10 @@
 // Created by Tyler Hinkie in April 2025
 public class Player {
     // Instance Variables
+    int id;
     String name;
+    int ht;
+    int wt;
     double cGames
     double cPoints;
     double cRebounds;
@@ -18,52 +21,65 @@ public class Player {
     double pAPG;
     // Constructor
 
-    public Player(String name) {
+    public Player(int id, String name, int ht, int wt) {
+        this.id = id;
         this.name = name;
+        this.ht = ht;
+        this.wt = wt;
     }
 
     // Methods
-    public void setcGames(double cGames) {
+    public void addcGames(double cGames) {
         this.cGames += cGames;
     }
 
-    public void setcPoints(double cPoints) {
+    public void addcPoints(double cPoints) {
         this.cPoints += cPoints;
     }
 
-    public void setcRebounds(double cRebounds) {
+    public void addcRebounds(double cRebounds) {
         this.cRebounds += cRebounds;
     }
 
-    public void setcAssists(double cAssists) {
+    public void addcAssists(double cAssists) {
         this.cAssists += cAssists;
     }
 
-    public void setcPPG(double cPPG) {
-        this.cPPG = cPPG;
+    public void calculatePerGameMetrics() {
+        if (cGames == 0) {
+            cPPG = 0;
+            cRPG = 0;
+            cAPG = 0;
+        } else {
+            cPPG = cPoints / cGames;
+            cRPG = cRebounds / cGames;
+            cAPG = cAssists / cGames;
+        }
+
+        if (pGames == 0) {
+            pPPG = 0;
+            pRPG = 0;
+            pAPG = 0;
+        } else {
+            pPPG = pPoints / pGames;
+            pRPG = pRebounds / pGames;
+            pAPG = pAssists / pGames;
+        }
     }
 
-    public void setcRPG(double cRPG) {
-        this.cRPG = cRPG;
-    }
-
-    public void setcAPG(double cAPG) {
-        this.cAPG = cAPG;
-    }
-
-    public void setpGames(double pGames) {
+    public void addpGames(double pGames) {
         this.pGames += pGames;
     }
 
-    public void setpPoints(double pPoints) {
+    public void addpPoints(double pPoints) {
         this.pPoints += pPoints;
     }
 
-    public void setpRebounds(double pRebounds) {
+    public void addpRebounds(double pRebounds) {
         this.pRebounds += pRebounds;
     }
 
-    public void setpAssists(double pAssists) {
+    public void addpAssists(double pAssists) {
         this.pAssists += pAssists;
     }
 
