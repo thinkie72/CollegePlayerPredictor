@@ -24,16 +24,44 @@ public class CollegePlayerPredictor {
                 Scanner myReader = new Scanner(myObj);
                 myReader.useDelimiter(",");
 
-                int index = 0;
+                myReader.nextLine();
 
                 while (myReader.hasNextLine()) {
                     String str = myReader.nextLine();
 
                     // Split values at each comma
                     String[] splitString = str.split(",");
-                    splitString[0]
-                    months[index] = new Month(splitString[0], parseInt(splitString[1]), parseInt(splitString[2]));
-                    index++;
+                    // Puts the player at their height and weight index
+                    heightWeight[splitString[2]][splitString[3]] = splitString[0];
+                }
+                myReader.close();
+            }
+        }
+        // Catch block to handle the exceptions
+        catch (Exception e) {
+            System.out.println("An error occurred." + e);
+            e.printStackTrace();
+        }
+
+        // Try block to check for exceptions
+        try {
+
+            // Creating object of File class to get file path
+            File myObj = new File("data/tbls/players.txt");
+
+            if (myObj.length() != 0) {
+                Scanner myReader = new Scanner(myObj);
+                myReader.useDelimiter(",");
+
+                myReader.nextLine();
+
+                while (myReader.hasNextLine()) {
+                    String str = myReader.nextLine();
+
+                    // Split values at each comma
+                    String[] splitString = str.split(",");
+                    // Puts the player at their height and weight index
+                    heightWeight[splitString[2]][splitString[3]] = splitString[0];
                 }
                 myReader.close();
             }
