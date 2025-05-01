@@ -28,6 +28,15 @@ public class Player {
         this.wt = wt;
     }
 
+    public Player(String name, int ht, int wt, double cPPG, double cRPG, double cAPG) {
+        this.name = name;
+        this.ht = ht;
+        this.wt = wt;
+        this.cPPG = cPPG;
+        this.cRPG = cRPG;
+        this.cAPG = cAPG;
+    }
+
     // Methods
     public void addcGames(double cGames) {
         this.cGames += cGames;
@@ -43,6 +52,22 @@ public class Player {
 
     public void addcAssists(double cAssists) {
         this.cAssists += cAssists;
+    }
+
+    public void addpGames(double pGames) {
+        this.pGames += pGames;
+    }
+
+    public void addpPoints(double pPoints) {
+        this.pPoints += pPoints;
+    }
+
+    public void addpRebounds(double pRebounds) {
+        this.pRebounds += pRebounds;
+    }
+
+    public void addpAssists(double pAssists) {
+        this.pAssists += pAssists;
     }
 
     public void calculatePerGameMetrics() {
@@ -67,31 +92,15 @@ public class Player {
         }
     }
 
-    public void addpGames(double pGames) {
-        this.pGames += pGames;
+    public double getcPPG() {
+        return cPPG;
     }
 
-    public void addpPoints(double pPoints) {
-        this.pPoints += pPoints;
+    public double getcRPG() {
+        return cRPG;
     }
 
-    public void addpRebounds(double pRebounds) {
-        this.pRebounds += pRebounds;
-    }
-
-    public void addpAssists(double pAssists) {
-        this.pAssists += pAssists;
-    }
-
-    public void setpPPG(double pPPG) {
-        this.pPPG = pPPG;
-    }
-
-    public void setpRPG(double pRPG) {
-        this.pRPG = pRPG;
-    }
-
-    public void setpAPG(double pAPG) {
-        this.pAPG = pAPG;
+    public double getcAPG() {
+        return cAPG;
     }
 }

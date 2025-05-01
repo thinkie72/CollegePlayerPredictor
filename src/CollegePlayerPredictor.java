@@ -102,10 +102,49 @@ public class CollegePlayerPredictor {
         }
     }
 
-    public static ArrayList<String>
+    public static ArrayList<String> compare() {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter Name: ");
+        String name = s.nextLine();
+        System.out.println();
+        System.out.print("Enter Height: ");
+        int ht = Integer.parseInt(s.nextLine());
+        System.out.println();
+        System.out.print("Enter Weight: ");
+        int wt = Integer.parseInt(s.nextLine());
+        System.out.println();
+        System.out.print("Enter PPG: ");
+        double pts = Double.parseDouble(s.nextLine());
+        System.out.println();
+        System.out.print("Enter RPG: ");
+        double reb = Double.parseDouble(s.nextLine());
+        System.out.println();
+        System.out.print("Enter APG: ");
+        double ast = Double.parseDouble(s.nextLine());
+        System.out.println();
+        Player p = new Player(name, ht, wt, pts, reb, ast);
+        ArrayList<Integer> candidates = new ArrayList<>();
+        for (int i = ht - 2; i <= ht + 2; i++) {
+            for (int j = wt - 20; j <= wt + 20; j++) {
+                candidates.addAll(heightWeight[i][j]);
+            }
+        }
+
+        Player x;
+        int distance;
+        int points;
+        int rebounds;
+        int assists;
+        for (int candidate : candidates) {
+            x = players.get(candidate);
+            points = Math.pow((), 2)
+            distance = Math.sqrt((p.))
+        }
+    }
 
     public static void start() {
         data();
+        compare();
     }
 
     public static void main(String[] args) {
