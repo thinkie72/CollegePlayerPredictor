@@ -111,4 +111,8 @@ public class Player {
     public String getName() {
         return name;
     }
+
+    public double getpPPG() {
+        return pPPG;
+    }
 }
