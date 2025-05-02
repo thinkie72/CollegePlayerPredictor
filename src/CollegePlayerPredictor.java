@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class CollegePlayerPredictor {
 
     public CollegePlayerPredictor() {
         players = new HashMap<>();
-        heightWeight = new ArrayList[30][280];
+        heightWeight = new ArrayList[92][381];
         for (int i = 0; i < heightWeight.length; i++) {
             for (int j = 0; j < heightWeight[0].length; j++) {
                 heightWeight[i][j] = new ArrayList<Integer>();
@@ -25,7 +26,7 @@ public class CollegePlayerPredictor {
         try {
 
             // Creating object of File class to get file path
-            File myObj = new File("data/tbls/players.txt");
+            File myObj = new File("data (cloned)/tbls/players.txt");
 
             if (myObj.length() != 0) {
                 Scanner myReader = new Scanner(myObj);
@@ -39,8 +40,9 @@ public class CollegePlayerPredictor {
                     // Split values at each comma
                     String[] splitString = str.split(",");
                     // Puts the player at their height and weight index
-                    int id = parseInt(splitString[0]);
+                    int id = Integer.parseInt(splitString[0]);
                     int ht = Integer.parseInt(splitString[2]);
+                    System.out.println(ht);
                     int wt = Integer.parseInt(splitString[3]);
                     heightWeight[ht][wt].add(id);
                     players.put(id, new Player(id, splitString[1], ht, wt));
@@ -53,56 +55,9 @@ public class CollegePlayerPredictor {
             System.out.println("An error occurred." + e);
             e.printStackTrace();
         }
-
-        // Try block to check for exceptions
-        try {
-
-            // Creating object of File class to get file path
-            File myObj = new File("data/tbls/playerHistory.txt");
-
-            if (myObj.length() != 0) {
-                Scanner myReader = new Scanner(myObj);
-                myReader.useDelimiter(",");
-
-                myReader.nextLine();
-
-                while (myReader.hasNextLine()) {
-                    String str = myReader.nextLine();
-
-                    // Split values at each comma
-                    String[] splitString = str.split(",");
-                    Player p = players.get(Integer.parseInt(splitString[5]);
-                    if (splitString[3].charAt(1) == 'c') {
-                        p.addcGames(Integer.parseInt(splitString[6]));
-                        p.addcPoints(Integer.parseInt(splitString[30]));
-                        p.addcRebounds(Integer.parseInt(splitString[24]));
-                        p.addcAssists(Integer.parseInt(splitString[25]));
-                    } else {
-                        p.addpGames(Integer.parseInt(splitString[6]));
-                        p.addpPoints(Integer.parseInt(splitString[30]));
-                        p.addpRebounds(Integer.parseInt(splitString[24]));
-                        p.addpAssists(Integer.parseInt(splitString[25]));
-                    }
-                }
-                myReader.close();
-            }
-        }
-        // Catch block to handle the exceptions
-        catch (Exception e) {
-            System.out.println("An error occurred." + e);
-            e.printStackTrace();
-        }
-
-        for (int i = 0; i < heightWeight.length; i++) {
-            for (int j = 0; j < heightWeight[0].length; j++) {
-                for (int id : heightWeight[i][j]) {
-                    players.get(id).calculatePerGameMetrics();
-                }
-            }
-        }
     }
 
-    public static ArrayList<String> compare() {
+    public static String[] compare() {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter Name: ");
         String name = s.nextLine();
@@ -130,21 +85,50 @@ public class CollegePlayerPredictor {
             }
         }
 
+        for (int candidate : candidates) {
+            System.out.println(candidate);
+        }
+
         Player x;
+        ArrayList<Integer>[] distances = new ArrayList[50];
+        for (int i = 0; i < distances.length; i++) {
+            distances[i] = new ArrayList<Integer>();
+        }
         int distance;
-        int points;
-        int rebounds;
-        int assists;
+        double points;
+        double rebounds;
+        double assists;
         for (int candidate : candidates) {
             x = players.get(candidate);
-            points = Math.pow((), 2)
-            distance = Math.sqrt((p.))
+            points = Math.pow(p.getcPPG() - x.getcPPG(), 2);
+            rebounds = Math.pow(p.getcRPG() - x.getcRPG(), 2);
+            assists = Math.pow(p.getcAPG() - x.getcAPG(), 2);
+            distance = (int) Math.round(Math.sqrt(points + rebounds + assists));
+            distances[distance].add(x.getId());
         }
+
+
+
+        ArrayList<Integer> similarPlayers = new ArrayList<Integer>();
+
+        int i = 0;
+
+        while (similarPlayers.size() < 5 && i < 50) {
+            similarPlayers.addAll(distances[i]);
+            i++;
+        }
+
+        String[] out = new String[similarPlayers.size()];
+        for (int j = 0; j < out.length; j++) {
+            out[j] = players.get(similarPlayers.removeFirst()).getName();
+        }
+
+        return out;
     }
 
     public static void start() {
         data();
-        compare();
+        System.out.println(Arrays.toString(compare()));
     }
 
     public static void main(String[] args) {

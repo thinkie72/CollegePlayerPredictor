@@ -1,26 +1,26 @@
 // Created by Tyler Hinkie in April 2025
 public class Player {
     // Instance Variables
-    int id;
-    String name;
-    int ht;
-    int wt;
-    double cGames
-    double cPoints;
-    double cRebounds;
-    double cAssists;
-    double cPPG;
-    double cRPG;
-    double cAPG;
-    double pGames;
-    double pPoints;
-    double pRebounds;
-    double pAssists;
-    double pPPG;
-    double pRPG;
-    double pAPG;
-    // Constructor
+    private int id;
+    private String name;
+    private int ht;
+    private int wt;
+    private double cGames;
+    private double cPoints;
+    private double cRebounds;
+    private double cAssists;
+    private double cPPG;
+    private double cRPG;
+    private double cAPG;
+    private double pGames;
+    private double pPoints;
+    private double pRebounds;
+    private double pAssists;
+    private double pPPG;
+    private double pRPG;
+    private double pAPG;
 
+    // Constructor
     public Player(int id, String name, int ht, int wt) {
         this.id = id;
         this.name = name;
@@ -102,5 +102,13 @@ public class Player {
 
     public double getcAPG() {
         return cAPG;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }
