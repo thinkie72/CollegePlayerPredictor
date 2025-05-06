@@ -97,7 +97,7 @@ public class CollegePlayerPredictor {
         }
     }
 
-    public static String[] compare() {
+    public static String compare() {
         Player y = players.get(7248636);
         System.out.println(y.getName());
         System.out.println(y.getId());
@@ -122,6 +122,21 @@ public class CollegePlayerPredictor {
         System.out.print("Enter APG: ");
         double ast = Double.parseDouble(s.nextLine());
         System.out.println();
+        System.out.print("Did they win the Wooden Award? (true/false) ");
+        System.out.println();
+        double wooden;
+        if (Boolean.parseBoolean(s.nextLine())) wooden = 1.5;
+        else wooden = 1;
+        System.out.print("Did they win March Madness? (true/false) ");
+        System.out.println();
+        double march;
+        if (Boolean.parseBoolean(s.nextLine())) march = 1.1;
+        else march = 1;
+        System.out.print("Did they attend a blue blood school? (true/false) ");
+        System.out.println();
+        double blueBlood;
+        if (Boolean.parseBoolean(s.nextLine())) blueBlood = 1.25;
+        else blueBlood = 1;
         Player p = new Player(name, ht, wt, pts, reb, ast);
         ArrayList<Integer> candidates = new ArrayList<>();
         for (int i = ht - 2; i <= ht + 2; i++) {
@@ -162,6 +177,9 @@ public class CollegePlayerPredictor {
         }
 
         String[] out = new String[5];
+        Double[] avgP = new Double[5];
+        Double[] avgR = new Double[5];
+        Double[] avgA = new Double[5];
         Player finalist;
 
         int index = 0;
@@ -169,16 +187,47 @@ public class CollegePlayerPredictor {
             finalist = players.get(similarPlayers.removeFirst());
             if (finalist.getpPPG() > 5) {
                 out[index] = finalist.getName();
+                avgP[index] = finalist.getpPPG();
+                avgR[index] = finalist.getpRPG();
+                avgA[index] = finalist.getpAPG();
                 index++;
             }
         }
 
-        return out;
+        double totalP = 0;
+        double totalR = 0;
+        double totalA = 0;
+        for (int j = 0; j < 5; j++) {
+            totalP += avgP[j];
+            totalR += avgR[j];
+            totalA += avgA[j];
+        }
+
+        double averageP = wooden * march * blueBlood * totalP / 5;
+        double averageR = wooden * march * blueBlood * totalR / 5;
+        double averageA = wooden * march * blueBlood * totalA / 5;
+
+        if (averageP > 30 && (averageR > 10 || averageA > 10)) System.out.println("ALL-TIME");
+        else if (averageP > 25 && (averageR > 10 || averageA > 8)) System.out.println("MVP Candidate");
+        else if (averageP > 25 && (averageR > 5 && averageA > 5)) System.out.println("ALL-NBA");
+        else if (averageP > 20 && (averageR > 5 || averageA > 5)) System.out.println("ALL-STAR");
+        else System.out.println("role player");
+
+        System.out.println(STR."P: \{averageP}");
+        System.out.println(STR."R: \{averageR}");
+        System.out.println(STR."A: \{averageA}");
+
+        String end = "Most Similar Players: ";
+        for (int n = 0; n < 5; n++) {
+            end += STR."(\{n + 1}) \{out[n]} ";
+        }
+
+        return end;
     }
 
     public static void start() {
         data();
-        System.out.println(Arrays.toString(compare()));
+        System.out.println(compare());
     }
 
     public static void main(String[] args) {

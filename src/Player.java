@@ -115,4 +115,12 @@ public class Player {
     public double getpPPG() {
         return pPPG;
     }
+
+    public double getpRPG() {
+        return pRPG;
+    }
+
+    public double getpAPG() {
+        return pAPG;
+    }
 }
