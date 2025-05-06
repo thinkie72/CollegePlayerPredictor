@@ -5,17 +5,17 @@ public class Player {
     private String name;
     private int ht;
     private int wt;
-    private double cGames;
-    private double cPoints;
-    private double cRebounds;
-    private double cAssists;
+    private int cGames;
+    private int cPoints;
+    private int cRebounds;
+    private int cAssists;
     private double cPPG;
     private double cRPG;
     private double cAPG;
-    private double pGames;
-    private double pPoints;
-    private double pRebounds;
-    private double pAssists;
+    private int pGames;
+    private int pPoints;
+    private int pRebounds;
+    private int pAssists;
     private double pPPG;
     private double pRPG;
     private double pAPG;
@@ -76,9 +76,9 @@ public class Player {
             cRPG = 0;
             cAPG = 0;
         } else {
-            cPPG = cPoints / cGames;
-            cRPG = cRebounds / cGames;
-            cAPG = cAssists / cGames;
+            cPPG = 1.0 * cPoints / cGames;
+            cRPG = 1.0 * cRebounds / cGames;
+            cAPG = 1.0 * cAssists / cGames;
         }
 
         if (pGames == 0) {
@@ -86,9 +86,9 @@ public class Player {
             pRPG = 0;
             pAPG = 0;
         } else {
-            pPPG = pPoints / pGames;
-            pRPG = pRebounds / pGames;
-            pAPG = pAssists / pGames;
+            pPPG = 1.0 * pPoints / pGames;
+            pRPG = 1.0 * pRebounds / pGames;
+            pAPG = 1.0 * pAssists / pGames;
         }
     }
 

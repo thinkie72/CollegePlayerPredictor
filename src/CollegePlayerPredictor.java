@@ -23,31 +23,22 @@ public class CollegePlayerPredictor {
         try {
 
             // Creating object of File class to get file path
-            File myObj = new File("data (cloned)/tbls/players.txt");
+            File obj1 = new File("data (cloned)/tbls/cleaned_players.txt");
 
-            if (myObj.length() != 0) {
-                Scanner myReader = new Scanner(myObj);
-                myReader.useDelimiter(",");
-
+            if (obj1.length() != 0) {
+                Scanner myReader = new Scanner(obj1);
                 myReader.nextLine();
 
                 while (myReader.hasNextLine()) {
                     String str = myReader.nextLine();
-
                     // Split values at each comma
                     String[] splitString = str.split(",");
                     // Puts the player at their height and weight index
                     int id = Integer.parseInt(splitString[0]);
 
-                    int ht;
-                    if (!splitString[2].isEmpty()) {
-                        ht = Integer.parseInt(splitString[2]);
-                    } else ht = 0;
+                    int ht = Integer.parseInt(splitString[2]);
 
-                    int wt;
-                    if (!splitString[3].isEmpty()) {
-                        wt = Integer.parseInt(splitString[3]);
-                    } else wt = 0;
+                    int wt = Integer.parseInt(splitString[3]);
 
                     heightWeight[ht][wt].add(id);
                     players.put(id, new Player(id, splitString[1], ht, wt));
@@ -61,51 +52,55 @@ public class CollegePlayerPredictor {
             e.printStackTrace();
         }
 
-//        // Try block to check for exceptions
-//        try {
-//
-//            // Creating object of File class to get file path
-//            File myObj = new File("data (cloned)/tbls/playerHistory.txt");
-//
-//            if (myObj.length() != 0) {
-//                Scanner myReader = new Scanner(myObj);
-//                myReader.useDelimiter(",");
-//
-//                myReader.nextLine();
-//
-//                while (myReader.hasNextLine()) {
-//                    String str = myReader.nextLine();
-//
-//                    // Split values at each comma
-//                    String[] splitString = str.split(",");
-//                    // Puts the player at their height and weight index
-//                    int id = Integer.parseInt(splitString[0]);
-//
-//                    int ht;
-//                    if (!splitString[2].isEmpty()) {
-//                        ht = Integer.parseInt(splitString[2]);
-//                    } else ht = 0;
-//
-//                    int wt;
-//                    if (!splitString[3].isEmpty()) {
-//                        wt = Integer.parseInt(splitString[3]);
-//                    } else wt = 0;
-//
-//                    heightWeight[ht][wt].add(id);
-//                    players.put(id, new Player(id, splitString[1], ht, wt));
-//                }
-//                myReader.close();
-//            }
-//        }
-//        // Catch block to handle the exceptions
-//        catch (Exception e) {
-//            System.out.println("An error occurred." + e);
-//            e.printStackTrace();
-//        }
+        // Try block to check for exceptions
+        try {
+            // Creating object of File class to get file path
+            File obj2 = new File("data (cloned)/tbls/cleaned_playerHistory.txt");
+
+            if (obj2.length() != 0) {
+                Scanner myReader = new Scanner(obj2);
+                myReader.nextLine();
+
+                while (myReader.hasNextLine()) {
+                    String str = myReader.nextLine();
+
+                    // Split values at each comma
+                    String[] splitString = str.split(",");
+                    Player p = players.get(Integer.parseInt(splitString[5]));
+                    if (splitString[3].charAt(1) == 'c') {
+                        p.addcGames(Integer.parseInt(splitString[6]));
+                        p.addcPoints(Integer.parseInt(splitString[30]));
+                        p.addcRebounds(Integer.parseInt(splitString[24]));
+                        p.addcAssists(Integer.parseInt(splitString[25]));
+                    } else {
+                        p.addpGames(Integer.parseInt(splitString[6]));
+                        p.addpPoints(Integer.parseInt(splitString[30]));
+                        p.addpRebounds(Integer.parseInt(splitString[24]));
+                        p.addpAssists(Integer.parseInt(splitString[25]));
+                    }
+                }
+                myReader.close();
+            }
+        }
+        // Catch block to handle the exceptions
+        catch (Exception e) {
+            System.out.println("An error occurred." + e);
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < heightWeight.length; i++) {
+            for (int j = 0; j < heightWeight[0].length; j++) {
+                for (int id : heightWeight[i][j]) {
+                    players.get(id).calculatePerGameMetrics();
+                }
+            }
+        }
     }
 
     public static String[] compare() {
         Player y = players.get(7248636);
+        System.out.println(y.getName());
+        System.out.println(y.getId());
         System.out.println(y.getcPPG());
         System.out.println(y.getpPPG());
         Scanner s = new Scanner(System.in);
@@ -159,14 +154,23 @@ public class CollegePlayerPredictor {
 
         int i = 0;
 
-        while (similarPlayers.size() < 5 && i < 50) {
-            similarPlayers.addAll(distances[i]);
+        while (i < 50) {
+            if (!distances[i].isEmpty()) {
+                similarPlayers.addAll(distances[i]);
+            }
             i++;
         }
 
         String[] out = new String[5];
-        for (int j = 0; j < out.length; j++) {
-            out[j] = players.get(similarPlayers.removeFirst()).getName();
+        Player finalist;
+
+        int index = 0;
+        while (index < 5 && !similarPlayers.isEmpty()) {
+            finalist = players.get(similarPlayers.removeFirst());
+            if (finalist.getpPPG() > 5) {
+                out[index] = finalist.getName();
+                index++;
+            }
         }
 
         return out;
@@ -176,80 +180,9 @@ public class CollegePlayerPredictor {
         data();
         System.out.println(Arrays.toString(compare()));
     }
-//
-//    public static void main(String[] args) {
-//        CollegePlayerPredictor cPP = new CollegePlayerPredictor();
-//        cPP.start();
-//    }
 
-
-    public static void main(String[] args) throws IOException {
-        File inputFile1 = new File("data (cloned)/tbls/players.txt");            // Main file to clean
-        File inputFile2 = new File ("data (cloned)/tbls/playerHistory.txt");    // Second file to filter
-        File outputFile1 = new File("data (cloned)/tbls/cleaned_players.txt");            // Main file to clean
-        File outputFile2 = new File ("data (cloned)/tbls/cleaned_playerHistory.txt"); // Cleaned output of file 2
-
-        Set<String> badIds = new HashSet<>();
-        List<String[]> validRows1 = new ArrayList<>();
-
-        // Step 1: Read first file and collect bad IDs
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile1))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length < 5) {
-                    parts = Arrays.copyOf(parts, 5);
-                }
-
-                boolean isBad = parts[2].isEmpty() || parts[3].isEmpty();
-                if (isBad) {
-                    badIds.add(parts[0]);
-                } else {
-                    validRows1.add(parts);
-                }
-            }
-        }
-
-        // Step 2: Remove rows in first file with bad ID in index 5
-        List<String> cleanedLines1 = new ArrayList<>();
-        for (String[] row : validRows1) {
-            if (row.length > 5 && badIds.contains(row[5])) {
-                continue;
-            }
-            cleanedLines1.add(String.join(",", row));
-        }
-
-        // Step 3: Filter second file using the bad IDs
-        List<String> cleanedLines2 = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile2))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length > 5 && badIds.contains(parts[5])) {
-                    continue;  // Skip if index 5 is a bad ID
-                }
-                cleanedLines2.add(line);
-            }
-        }
-
-        // Step 4: Write cleaned first file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile1))) {
-            for (String line : cleanedLines1) {
-                writer.write(line);
-                writer.newLine();
-            }
-        }
-
-        // Step 5: Write cleaned second file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile2))) {
-            for (String line : cleanedLines2) {
-                writer.write(line);
-                writer.newLine();
-            }
-        }
-
-        System.out.println("Cleaning complete. Outputs written to:");
-        System.out.println(STR." - \{outputFile1}");
-        System.out.println(STR." - \{outputFile2}");
+    public static void main(String[] args) {
+        CollegePlayerPredictor cPP = new CollegePlayerPredictor();
+        start();
     }
 }
