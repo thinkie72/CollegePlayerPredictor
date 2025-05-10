@@ -125,7 +125,7 @@ public class CollegePlayerPredictor {
         System.out.print("Did they win the Wooden Award? (true/false) ");
         System.out.println();
         double wooden;
-        if (Boolean.parseBoolean(s.nextLine())) wooden = 1.5;
+        if (Boolean.parseBoolean(s.nextLine())) wooden = 1.25;
         else wooden = 1;
         System.out.print("Did they win March Madness? (true/false) ");
         System.out.println();
@@ -135,7 +135,7 @@ public class CollegePlayerPredictor {
         System.out.print("Did they attend a blue blood school? (true/false) ");
         System.out.println();
         double blueBlood;
-        if (Boolean.parseBoolean(s.nextLine())) blueBlood = 1.25;
+        if (Boolean.parseBoolean(s.nextLine())) blueBlood = 1.5;
         else blueBlood = 1;
         Player p = new Player(name, ht, wt, pts, reb, ast);
         ArrayList<Integer> candidates = new ArrayList<>();
@@ -159,16 +159,13 @@ public class CollegePlayerPredictor {
             points = Math.pow(p.getcPPG() - x.getcPPG(), 2);
             rebounds = Math.pow(p.getcRPG() - x.getcRPG(), 2);
             assists = Math.pow(p.getcAPG() - x.getcAPG(), 2);
-            distance = (int) Math.round(Math.sqrt(points + rebounds + assists));
+            distance = (int) Math.round(Math.sqrt(points + 5 * rebounds + 5 * assists));
             distances[distance].add(x.getId());
         }
-
-
 
         ArrayList<Integer> similarPlayers = new ArrayList<Integer>();
 
         int i = 0;
-
         while (i < 50) {
             if (!distances[i].isEmpty()) {
                 similarPlayers.addAll(distances[i]);
