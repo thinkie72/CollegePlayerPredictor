@@ -123,4 +123,12 @@ public class Player {
     public double getpAPG() {
         return pAPG;
     }
+
+    public int getHt() {
+        return ht;
+    }
+
+    public int getWt() {
+        return wt;
+    }
 }
