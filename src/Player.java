@@ -20,7 +20,7 @@ public class Player {
     private double pRPG;
     private double pAPG;
 
-    // Constructor
+    // Constructor for reading in players
     public Player(int id, String name, int ht, int wt) {
         this.id = id;
         this.name = name;
@@ -28,6 +28,7 @@ public class Player {
         this.wt = wt;
     }
 
+    // Constructor for player entered in by user
     public Player(String name, int ht, int wt, double cPPG, double cRPG, double cAPG) {
         this.name = name;
         this.ht = ht;
@@ -38,6 +39,9 @@ public class Player {
     }
 
     // Methods
+
+    // These add stats for per-game calculations in read-in players
+
     public void addcGames(double cGames) {
         this.cGames += cGames;
     }
@@ -70,7 +74,9 @@ public class Player {
         this.pAssists += pAssists;
     }
 
+    // Calculates per-game metrics for each player that is read-in
     public void calculatePerGameMetrics() {
+        // Prevents division by 0
         if (cGames == 0) {
             cPPG = 0;
             cRPG = 0;
@@ -81,6 +87,7 @@ public class Player {
             cAPG = 1.0 * cAssists / cGames;
         }
 
+        // Prevents division by 0
         if (pGames == 0) {
             pPPG = 0;
             pRPG = 0;
@@ -91,6 +98,8 @@ public class Player {
             pAPG = 1.0 * pAssists / pGames;
         }
     }
+
+    // Accessor methods for front and back end
 
     public double getcPPG() {
         return cPPG;

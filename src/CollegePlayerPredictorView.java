@@ -1,8 +1,11 @@
+// Created by Tyler Hinkie in May 2025
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class CollegePlayerPredictorView {
+    // Reference to the back end to receive results from inputted data
     private CollegePlayerPredictor predictor;
 
     public CollegePlayerPredictorView() {
@@ -43,6 +46,7 @@ public class CollegePlayerPredictorView {
 
                     StringBuilder sb = new StringBuilder();
                     sb.append("Similar Players:\n");
+                    // Formats the displaying of the similar players
                     for (Player p : result.similarPlayers) {
                         sb.append(p.getName())
                                 .append(": ")
@@ -53,6 +57,7 @@ public class CollegePlayerPredictorView {
                                 .append(String.format("%.1f PPG, %.1f RPG, %.1f APG", p.getpPPG(), p.getpRPG(), p.getpAPG()))
                                 .append("\n");
                     }
+                    // Formats the results for the inputted player
                     sb.append("\nPredicted Pro Stats for ").append(name).append(":\n");
                     sb.append(String.format("%.1f PPG, %.1f RPG, %.1f APG\n", result.avgPPG, result.avgRPG, result.avgAPG));
                     sb.append("Role: ").append(result.role);
@@ -64,12 +69,18 @@ public class CollegePlayerPredictorView {
             }
         });
 
-        panel.add(new JLabel("Name:")); panel.add(nameField);
-        panel.add(new JLabel("Height (inches):")); panel.add(heightField);
-        panel.add(new JLabel("Weight (lbs):")); panel.add(weightField);
-        panel.add(new JLabel("College PPG:")); panel.add(ppgField);
-        panel.add(new JLabel("College RPG:")); panel.add(rpgField);
-        panel.add(new JLabel("College APG:")); panel.add(apgField);
+        panel.add(new JLabel("Name:"));
+        panel.add(nameField);
+        panel.add(new JLabel("Height (inches):"));
+        panel.add(heightField);
+        panel.add(new JLabel("Weight (lbs):"));
+        panel.add(weightField);
+        panel.add(new JLabel("College PPG:"));
+        panel.add(ppgField);
+        panel.add(new JLabel("College RPG:"));
+        panel.add(rpgField);
+        panel.add(new JLabel("College APG:"));
+        panel.add(apgField);
         panel.add(blueBloodCheck);
         panel.add(submitButton);
         panel.add(scrollPane);
